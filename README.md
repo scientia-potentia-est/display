@@ -11,3 +11,7 @@ All releases are shipped with the actual exploit disabled to avoid accidents. To
 Disclaimer
 ==========
 This program is to be used only with written permission of the owner of the device on which it is run. The authors of this program take absolutely no responsibility for misuse of this program.
+
+Get the Latest Release
+======================
+To download the most recent stable release, click [here](https://github.com/scientia-potentia-est/display/releases)
