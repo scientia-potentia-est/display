@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>49C1A866-10D5-4D36-A43B-81347CFC3F08</string>
+	<key>IDESourceControlProjectName</key>
+	<string>display</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>748FEE1B79C94564A3899F295F58B2D457EB1A4D</key>
+		<string>https://github.com/WireTech/trippy.git</string>
+		<key>83A6485065FBD2E846F1E4842C0C36DD399F45DB</key>
+		<string>https://github.com/scientia-potentia-est/display</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>display.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>748FEE1B79C94564A3899F295F58B2D457EB1A4D</key>
+		<string>../../../Trippy</string>
+		<key>83A6485065FBD2E846F1E4842C0C36DD399F45DB</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/scientia-potentia-est/display</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>83A6485065FBD2E846F1E4842C0C36DD399F45DB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>83A6485065FBD2E846F1E4842C0C36DD399F45DB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>display</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>748FEE1B79C94564A3899F295F58B2D457EB1A4D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Trippy</string>
+		</dict>
+	</array>
+</dict>
+</plist>
