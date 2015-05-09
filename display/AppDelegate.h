@@ -9,7 +9,7 @@
 #import "Import.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
-
++ (void) pauseApps;
 
 @end
 

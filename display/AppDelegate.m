@@ -14,6 +14,8 @@
 
 @end
 
+
+
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -25,14 +27,17 @@
     
     
     self.window = [[MainWindow alloc] init];
-    [self pauseApps];
+
 }
 
-- (void) pauseApps {
++ (void) pauseApps {
+    NSArray *toPause = @[@"loginwindow", @"Dock", @"com.apple.internetaccounts", @"ARDAgent", @"SystemUIServer", @"CoreServicesUIAgent", @"Finder", @"com.apple.dock.extra", @"AirPlayUIAgent", @"Spotlight", @"iTunes Helper", @"Notification Center", @"sharingd", @"com.apple.dock.extra", @"LaterAgent"];
     NSArray *apps = [[NSWorkspace sharedWorkspace] runningApplications];
     for (NSRunningApplication *app in apps) {
-        if ([app processIdentifier] != getpid())
-            kill([app processIdentifier], SIGSTOP);
+        if ([app processIdentifier] != getpid() && [toPause containsObject:[app localizedName]]){
+            NSLog(@"Killing %@:\t%d", [app localizedName], kill([app processIdentifier], SIGSTOP));
+//            kill([app processIdentifier], SIGSTOP);
+        }
     }
 }
 @end

