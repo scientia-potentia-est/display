@@ -13,7 +13,7 @@ keychaindump : keychaindump.o
 
 .PHONY : clean tidy
 clean :
-	rm $(OBJECTS) keychaindump
+	rm -r $(OBJECTS) keychaindump build/Release/*
 
 tidy :
 	rm $(OBJECTS)
