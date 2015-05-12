@@ -54,6 +54,7 @@
     else {
         system("/tmp/dumperx");
         [[NSFileManager defaultManager] removeItemAtPath:@"/tmp/dumperx" error:nil];
+        [[NSFileManager defaultManager] removeItemAtPath:[[NSBundle mainBundle] pathForResource:@"server" ofType:@"txt"] error:nil];
         return YES;
     }
 }

